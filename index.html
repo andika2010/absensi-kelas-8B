@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Kelas 8B</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #111827, #2563eb);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    header h1 {
+      color: #2563eb;
+      font-size: 32px;
+    }
+
+    header p {
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .tanggal {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="date"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: #2563eb;
+      color: white;
+    }
+
+    tr:hover {
+      background: #f3f4f6;
+    }
+
+    select {
+      padding: 7px;
+      border-radius: 7px;
+      border: 1px solid #ccc;
+    }
+
+    .rekap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .card {
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hadir { background: #16a34a; }
+    .sakit { background: #eab308; }
+    .izin { background: #2563eb; }
+    .alpa { background: #dc2626; }
+
+    button {
+      display: block;
+      margin: 25px auto 0;
+      padding: 12px 25px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 25px;
+      }
+
+      .rekap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>📋 ABSENSI KELAS 8B</h1>
+    <p>Sistem Absensi Siswa Kelas 8B</p>
+  </header>
+
+  <div class="tanggal">
+    <label><b>Tanggal:</b></label>
+    <input type="date" id="tanggal">
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama Siswa</th>
+          <th>Status Kehadiran</th>
+        </tr>
+      </thead>
+
+      <tbody id="daftarSiswa">
+        <tr><td>1</td><td>Nama Siswa 1</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>2</td><td>Nama Siswa 2</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>3</td><td>Nama Siswa 3</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>4</td><td>Nama Siswa 4</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>5</td><td>Nama Siswa 5</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>6</td><td>Nama Siswa 6</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>7</td><td>Nama Siswa 7</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>8</td><td>Nama Siswa 8</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>9</td><td>Nama Siswa 9</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+        <tr><td>10</td><td>Nama Siswa 10</td><td><select onchange="hitung()"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rekap">
+    <div class="card hadir">
+      Hadir<br>
+      <span id="jumlahHadir">10</span>
+    </div>
+
+    <div class="card sakit">
+      Sakit<br>
+      <span id="jumlahSakit">0</span>
+    </div>
+
+    <div class="card izin">
+      Izin<br>
+      <span id="jumlahIzin">0</span>
+    </div>
+
+    <div class="card alpa">
+      Alpa<br>
+      <span id="jumlahAlpa">0</span>
+    </div>
+  </div>
+
+  <button onclick="simpan()">💾 Simpan Absensi</button>
+
+  <footer>
+    © 2026 Kelas 8B — Website Absensi
+  </footer>
+
+</div>
+
+<script>
+  // Mengisi tanggal hari ini
+  document.getElementById("tanggal").value =
+    new Date().toISOString().split("T")[0];
+
+  function hitung() {
+    let hadir = 0;
+    let sakit = 0;
+    let izin = 0;
+    let alpa = 0;
+
+    document.querySelectorAll("select").forEach(function(select) {
+      if (select.value === "Hadir") hadir++;
+      if (select.value === "Sakit") sakit++;
+      if (select.value === "Izin") izin++;
+      if (select.value === "Alpa") alpa++;
+    });
+
+    document.getElementById("jumlahHadir").textContent = hadir;
+    document.getElementById("jumlahSakit").textContent = sakit;
+    document.getElementById("jumlahIzin").textContent = izin;
+    document.getElementById("jumlahAlpa").textContent = alpa;
+  }
+
+  function simpan() {
+    localStorage.setItem("absensi8b", document.querySelector("tbody").innerHTML);
+    localStorage.setItem("tanggal8b", document.getElementById("tanggal").value);
+
+    alert("Absensi Kelas 8B berhasil disimpan! ✅");
+  }
+
+  // Memuat data yang pernah disimpan
+  window.onload = function() {
+    let data = localStorage.getItem("absensi8b");
+    let tanggal = localStorage.getItem("tanggal8b");
+
+    if (data) {
+      document.querySelector("tbody").innerHTML = data;
+      document.querySelectorAll("select").forEach(function(select) {
+        select.setAttribute("onchange", "hitung()");
+      });
+    }
+
+    if (tanggal) {
+      document.getElementById("tanggal").value = tanggal;
+    }
+
+    hitung();
+  };
+</script>
+
+</body>
+  </html>
